@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0; padding: 0 }
+        #map-canvas { height: 100% }
+        div.people{
+            position:fixed;
+            z-index:3;
+            top: 33px;
+            left: 33px
+        }
+        img.person{
+            opacity:0.33;
+            border: 1px solid transparent; float: left;
+            cursor: pointer;
+            margin-right:33px; width: 66px; height: 66px; border-radius: 33px;
+            transition:0.33s;
+        }
+        img.on{
+            opacity: 1;
+            border-color: white;
+            transform:rotate(33deg);
+            -webkit-transform:rotate(33deg);
+        }
+        img.person:hover{
+            opacity: 1;
+        }
+    </style>
+    <!--google maps-->
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAJexARTJJs7yyOPPpNFgMuXlToD6Vo_n8"></script>
+    <script type="text/javascript">
+        //google maps API
+        function initialize() {
+
+            var mapOptions = {
+                center: new google.maps.LatLng(37.392059, -122.084772),
+                zoom: 5,
+                disableDefaultUI: true,
+                styles:[{
+                    "stylers": [
+                        { "visibility": "simplified" },
+                        { "invert_lightness": true },
+                    ]
+                }]
+            };
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+     </script>
+</head>
+<body>
+    <div class='people'>
+        <img id='a' class='person' src='a.jpg' />
+        <img id='m' class='person' src='m.jpg' />
+        <img id='y' class='person' src='y.jpg' />
+    </div>
+    <div id="map-canvas"/>
+
+    <!--jquery & bootstrap-->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        //my JQuery starter
+        $( document ).ready(function() {
+            var a = $('#a'); var m = $('#m'); var y = $('#y');
+
+            a.click(function(){a.toggleClass('on');});
+            m.click(function(){m.toggleClass('on');});
+            y.click(function(){y.toggleClass('on');});
+        });
+
+    </script>
+</body>
+</html>
+
