@@ -51,7 +51,7 @@ app.use(express.errorHandler);
 //--------------------------------
 
 //run the server
-console.log('starting server on 8080..');
-http.createServer(app).listen(8080);
+console.log('starting server on 9999..');
+http.createServer(app).listen(9999);
 //https.createServer(options, app).listen(443);
-console.log('server running on 8080..');
+console.log('server running on 9999..');
