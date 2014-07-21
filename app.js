@@ -21,24 +21,6 @@ app.engine('html', require('ejs').renderFile);
 app.use('/static',express.static(__dirname + '/public'));
 
 
-//mobile download
-app.all('/d', function(req, res){
-    var agent = req.header('User-Agent').toLowerCase();
-    //iphone
-    if(agent.indexOf('iphone') > -1){
-        res.redirect('https://itunes.apple.com/us/app/ricepo-chinese-food-delivery/id844835003?mt=8');
-    }
-    //android
-    else if(agent.indexOf('android') > -1){
-        //res.sendfile(__dirname + '/public/Ricepo-release 1.1.1.apk');
-        res.redirect('https://play.google.com/store/apps/details?id=com.ricepo.app');
-    }
-    //else
-    else{
-        res.render('index.html');
-    }
-});
-
 //intro page
 app.all('*',function(req,res){
     res.render('index.html');
