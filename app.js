@@ -2,6 +2,7 @@
 var http = require('http');
 var https = require('https');
 var express = require('express');
+var route = require('route');
 
 //new instance of modules
 var app = express();
@@ -10,16 +11,22 @@ var app = express();
 
 //middlewares
 //app.use(express.logger());
+/*
 app.use(function(req,res,next){
     console.log(req.header('User-Agent'));
     next();
 });
+*/
+
+//static file render
 app.set('views', __dirname + '/public');
 app.engine('html', require('ejs').renderFile);
 //app.engine('jade', require('jade').__express);
 
 app.use('/static',express.static(__dirname + '/public'));
 
+//fetch images
+app.all('/fetch',route.fetch);
 
 //intro page
 app.all('*',function(req,res){

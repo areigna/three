@@ -1,0 +1,43 @@
+html { height: 100% }
+body { height: 100%; margin: 0; padding: 0 }
+#map-canvas { height: 100% }
+div.people{
+    position:fixed;
+    z-index:3;
+    top: 33px;
+    left: 33px
+}
+img.person{
+    opacity:0.33;
+    border: 1px solid transparent; float: left;
+    cursor: pointer;
+    margin-right:33px; width: 66px; height: 66px; border-radius: 33px;
+    transition:0.33s;
+    transform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+}
+img.on{
+    opacity: 1;
+    border-color: white;
+    -webkit-animation: rotate 3.3s linear 0.33s infinite;
+    animation: rotate 3.3s linear 0.33s infinite;
+}
+img.person:hover{
+    opacity: 1;
+}
+img.moment{
+    border:1px solid white;
+    opacity: 0;
+    transition: 2s;
+}
+
+@-webkit-keyframes rotate {
+    0%   {transform:rotate(0deg);-webkit-transform:rotate(0deg);}
+    50%   {transform:rotate(180deg);-webkit-transform:rotate(180deg);}
+    100%   {transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+}
+@keyframes rotate {
+    0%   {transform:rotate(0deg);-webkit-transform:rotate(0deg);}
+    50%   {transform:rotate(180deg);-webkit-transform:rotate(180deg);}
+    100%   {transform:rotate(360deg);-webkit-transform:rotate(360deg);}
+}
