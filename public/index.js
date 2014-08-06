@@ -1,7 +1,10 @@
 //google maps API
 var map;
-var speed = 660;
-var zoom = 12;
+var speed = 1000;
+var zoom = 6;
+var dis = 2;
+var max = 233;
+var min = 18;
 var obj = {
     "gphoto:id": "6043268598467267666",
     "gphoto:timestamp": "1407051705000",
@@ -12,36 +15,37 @@ function initialize() {
 
     var mapOptions = {
         center: new google.maps.LatLng(36.6, -121.8),
-        zoom: 12,
+        zoom: zoom,
         disableDefaultUI: true,
-        mapTypeId: 'terrain',
+        //mapTypeId: 'terrain',
         styles:[
             {
                 "stylers": [
-                    { "visibility": "simplified" },
+                    { "visibility": "all" },
                     { "invert_lightness": true },
                 ]
             },
               {
                 "featureType": "road",
                 "elementType": "labels",
-                "stylers": [
-                    { "visibility": "on" },
-                    { "saturation": -100 },
-                    { "hue": "#ff0000" },
-                    { "lightness": -70 }
-                ]
+                "stylers": [{ "visibility": "off" }, ]
             },
             {
-                "featureType": "road",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    { "visibility": "on" },
-                    { "saturation": -100 },
-                    { "hue": "#ff0000" },
-                    { "lightness": -70 }
-                ]
-            }
+                "featureType": "administrative.neighborhood",
+                "stylers": [{ "visibility": "off" } ]
+            },
+            {
+                "featureType": "administrative.locality",
+                "stylers": [{ "visibility": "off" } ]
+            },
+            {
+                "featureType": "transit",
+                "stylers": [{ "visibility": "off" } ]
+            },
+            {
+                "featureType": "poi",
+                "stylers": [{ "visibility": "off" } ]
+            },
         ]
     };
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
@@ -57,7 +61,7 @@ function loadPerson(){
         inter = setInterval(loadMoment,speed);
     }
     else{
-        $.get('/fetch?max=1000&size=150c&index=1101',function(data){
+        $.get('/fetch?max=1000&size=150c&index=1160',function(data){
             moments = data;
             loadMoment();
             inter = setInterval(loadMoment,speed);

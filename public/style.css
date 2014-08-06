@@ -9,7 +9,7 @@ div.people{
 }
 img.person{
     opacity:0.33;
-    border: 1px solid transparent; float: left;
+    border: 2px solid transparent; float: left;
     cursor: pointer;
     margin-right:33px; width: 66px; height: 66px; border-radius: 33px;
     transition:0.33s;
@@ -26,7 +26,7 @@ img.person:hover{
     opacity: 1;
 }
 img.moment{
-    border:1px solid white;
+    border:2px solid white;
     opacity: 0;
     transition: 2s;
 }

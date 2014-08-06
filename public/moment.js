@@ -1,6 +1,5 @@
 //extends Map.OverLayView
 Moment.prototype = new google.maps.OverlayView();
-var dis = 0.03;
 //constructor
 function Moment(obj, map) {
     if(!obj['georss:where']) return;
@@ -47,8 +46,8 @@ Moment.prototype.draw = function() {
     img.style.top = ne.y + 'px';
     //
     var length = ne.x-sw.x;
-    if(length < 18) length = 18;
-    if(length > 150) length = 150;
+    if(length < min) length = min;
+    if(length > max) length = max;
     img.style.width = length + 'px';
     img.style.height = length + 'px';//(sw.y - ne.y) + 'px';
     img.style.borderRadius = length/2 + 'px';
