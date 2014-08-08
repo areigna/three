@@ -2,7 +2,7 @@
 var http = require('http');
 var https = require('https');
 var express = require('express');
-var route = require('route');
+var route = require('./route');
 
 //new instance of modules
 var app = express();
