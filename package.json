@@ -4,7 +4,8 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "start": "forever stopall;forever start -o output.txt -e error.txt --minUptime 3000 --spinSleepTime 3000 app.js"
+        "start": "forever stopall;forever start -o output.txt -e error.txt --minUptime 3000 --spinSleepTime 3000 app.js",
+        "stop": "forever stopall"
     },
     "dependencies": {
         "express": "3.4.7",
