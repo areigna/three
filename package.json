@@ -5,6 +5,7 @@
     "private": true,
     "scripts": {
         "start": "forever stopall;forever start -o output.txt -e error.txt --minUptime 3000 --spinSleepTime 3000 app.js",
+        "restart": "forever stopall;forever start -o output.txt -e error.txt --minUptime 3000 --spinSleepTime 3000 app.js",
         "stop": "forever stopall"
     },
     "dependencies": {
